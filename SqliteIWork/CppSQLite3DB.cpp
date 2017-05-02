@@ -330,11 +330,11 @@ bool CppSQLite3Query::fieldIsExist(const char* szField)
 			if (strcmp(szField, szTemp) == 0)
 			{
 				nID = nField;
-				return nField;
+				return nField ? true : false;
 			}
 		}
 	}
-	return nID;
+	return nID?true:false;
 }
 
 int CppSQLite3Query::fieldIndex(const char* szField)
@@ -483,6 +483,7 @@ int CppSQLite3DB::OpenDataBase(const char* pDBFileName)
 	}
 
 	open(pDBFileName);  ///< 打开数据库
+	return 0;
 }
 
 void CppSQLite3DB::open(const char* szFile)

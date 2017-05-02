@@ -7,6 +7,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExeclWithQt", "ExeclWithQt\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SqliteIWork", "SqliteIWork\SqliteIWork.vcxproj", "{B1FB74F6-9D93-408A-A446-2A710559051D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseLib", "BaseLib", "{59DDF138-124C-4201-B840-39C75AD1E73A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BaseLog", "BaseLog\BaseLog.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MsgQue", "MsgQue\MsgQue.vcxproj", "{4FB61257-790C-42AD-87BF-C2C39DAF2556}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Win32 = Release|Win32
@@ -16,8 +22,16 @@ Global
 		{309CA3B3-FF38-40E8-BB81-CB6C7717864C}.Release|Win32.Build.0 = Release|Win32
 		{B1FB74F6-9D93-408A-A446-2A710559051D}.Release|Win32.ActiveCfg = Release|Win32
 		{B1FB74F6-9D93-408A-A446-2A710559051D}.Release|Win32.Build.0 = Release|Win32
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|Win32.ActiveCfg = Release|Win32
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|Win32.Build.0 = Release|Win32
+		{4FB61257-790C-42AD-87BF-C2C39DAF2556}.Release|Win32.ActiveCfg = Release|Win32
+		{4FB61257-790C-42AD-87BF-C2C39DAF2556}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B12702AD-ABFB-343A-A199-8E24837244A3} = {59DDF138-124C-4201-B840-39C75AD1E73A}
+		{4FB61257-790C-42AD-87BF-C2C39DAF2556} = {59DDF138-124C-4201-B840-39C75AD1E73A}
 	EndGlobalSection
 EndGlobal
