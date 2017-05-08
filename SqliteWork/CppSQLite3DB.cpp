@@ -459,9 +459,14 @@ int CppSQLite3DB::OpenDataBase(const char* pDBFileName)
 		execDML(pCreateSQL);  ///< 创建用户表
 
 		sprintf(sOperateSQL,
-			"INSERT INTO VQDUsersTable VALUES(NULL, 'admin', '12345', 2);");
+			"INSERT INTO UserTable VALUES(NULL, 'admin', '12345', 2);");
 		/* 插入数据 */
 		execDML(sOperateSQL);
+	}
+	if (!tableExists("PlansTable"))  ///< 如果数据库中没有计划表，就创建之
+	{
+		pCreateSQL = "CREATE TABLE PlansTable(ID VARCHAR(32) PRIMARY KEY, CheckFlag INTEGER)";
+		execDML(pCreateSQL);  ///< 创建计划表
 	}
 	return 0;
 }
@@ -599,10 +604,66 @@ int CppSQLite3DB::execDML(const char* szSQL)
 	else
 	{
 		/* sqlite数据库打印出错日志 */
-		DEBUG_LOG("sqlite error message is " << szError<<",when %s "<<szSQL);
+		DEBUG_LOG("sqlite error message is " << szError<<",when "<<szSQL);
 		LeaveCriticalSection(&mpCS);
 		//throw CppSQLite3Exception(nRet, szError);
 	}
 
 	return 0;
+}
+
+int CppSQLite3DB::InsertToPlansTable(PLANS_INFO_S* pPlansInfo)
+{
+	if (NULL == pPlansInfo)
+	{
+		return -1;
+	}
+
+	char		sOperateSQL[SQL_STRING_LEN] = { 0 };
+	char*		zErrorMsg = 0;
+	int	nRet = 0;
+	EnterCriticalSection(&mpCS);
+	nRet = sqlite3_exec(mpDB, "begin transaction", 0, 0, &zErrorMsg);
+	sprintf(sOperateSQL, "DELETE from PlansTable where ID = '%s';", pPlansInfo->sPlanID);
+	/* 删除原来数据 */
+	execDML(sOperateSQL);
+	sprintf(sOperateSQL,
+		"INSERT INTO PlansTable VALUES('%s', '%d');",
+		 pPlansInfo->sPlanID, pPlansInfo->bCheckFlag);
+	/* 插入数据 */
+	execDML(sOperateSQL);
+
+	nRet = sqlite3_exec(mpDB, "commit transaction", 0, 0, &zErrorMsg);
+	LeaveCriticalSection(&mpCS);
+	return 0;
+}
+
+int CppSQLite3DB::GetPlansTable(PlanInfoList& st_planInfo)
+{
+	char* pOperateSQL;
+	int ncount = -1;
+	if (tableExists("PlansTable"))  ///< 如果数据库中没有通道表，就创建通道表
+	{
+		pOperateSQL = "select count(*) from PlansTable;";
+		ncount= execScalar(pOperateSQL);
+		if (ncount==0)
+		{
+			return ncount;
+		}
+	}
+	char            sOperateSQL[SQL_STRING_LEN] = { 0 };
+	CppSQLite3Query queryPlanResult;
+	sprintf(sOperateSQL, "select * from PlansTable;");
+	queryPlanResult = execQuery(sOperateSQL);
+	PLANS_INFO_S planinfoTmp = { 0 };
+	while (!queryPlanResult.eof())
+	{
+		memset(&planinfoTmp, 0x0, sizeof(PLANS_INFO_S));
+		memcpy(planinfoTmp.sPlanID, queryPlanResult.fieldValue(0), 64);
+		planinfoTmp.bCheckFlag = queryPlanResult.getIntField(1);
+		st_planInfo.push_back(planinfoTmp);
+		queryPlanResult.nextRow();
+	}
+	queryPlanResult.finalize();
+	return ncount;
 }

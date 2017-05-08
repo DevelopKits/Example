@@ -8,6 +8,8 @@
 #include <cstring>
 #include <vector>
 #include <algorithm>
+#include <map>
+#include <list>
 #include <windows.h>
 using namespace std;
 
@@ -15,6 +17,17 @@ using namespace std;
 #define CPPSQLITE_ERROR 1000
 
 #define SQL_STRING_LEN                  1024 ///< 操作数据库的字符串长度
+
+#define ID_LEN                          64   ///< ID长度
+
+
+typedef struct PLANS_INFO_STRUCT
+{
+	char	sPlanID[ID_LEN];		
+	int    bCheckFlag;			
+}PLANS_INFO_S;
+
+typedef std::list<PLANS_INFO_S> PlanInfoList;
 
 class CppSQLite3Exception
 {
@@ -104,7 +117,14 @@ class IDataBase
 {
 public:
 	virtual ~IDataBase() {};
+	/* 打开数据库 */
 	virtual int OpenDataBase(const char* pDBFileName) = 0;
+
+	/*插入到数据库的计划表中 */
+	virtual int   InsertToPlansTable(PLANS_INFO_S* pPlansInfo) = 0;
+
+	/*查询当前的计划任务信息 */
+	virtual int   GetPlansTable(PlanInfoList& st_planInfo) = 0;
 };
 
 class CppSQLite3DB : public IDataBase
@@ -116,8 +136,12 @@ public:
 
 	/* 打开数据库 */
 	int   OpenDataBase(const char* pDBFileName);
-	//执行操作语句
-	int          execDML(const char* szSQL);
+	
+	/*插入到数据库的计划表中 */
+	int   InsertToPlansTable(PLANS_INFO_S* pPlansInfo);
+
+	/*查询当前的计划任务信息 */
+	int   GetPlansTable(PlanInfoList& st_planInfo);
 private:
 	void         open(const char* szFile);
 	void         close();
@@ -127,6 +151,8 @@ private:
 	CppSQLite3Query execQuery(const char* szSQL);
 	void            checkDB();
 	sqlite3_stmt*   compile(const char* szSQL);
+	//执行操作语句
+	int          execDML(const char* szSQL);
 
 private:
 	sqlite3*        mpDB;
