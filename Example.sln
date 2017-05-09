@@ -13,6 +13,22 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectX_Surface", "DirectX_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectX_Texture", "DirectX_Texture\DirectX_Texture.vcxproj", "{5DC17EA4-6A82-4F5D-88C1-189877AA9A16}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MediaSdk", "MediaSdk", "{4AC0A0ED-A917-42A8-B497-F217C759BF9A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imfx_common", "imfx_common\imfx_common.vcxproj", "{A7FEC44C-6F78-428B-AB15-619DA14BB3D9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SampleDecodeShow", "SampleDecodeShow\SampleDecodeShow.vcxproj", "{73F96002-2704-4BFF-AAA7-A649D4F9BCB6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imfx_decode", "imfx_decode\imfx_decode.vcxproj", "{63D4ABC3-8374-44FC-B2B5-F699A29FEF50}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imfx_encode", "imfx_encode\imfx_encode.vcxproj", "{6CC897F1-8725-4550-BD23-709E79C5AF5B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imfx_vpp", "imfx_vpp\imfx_vpp.vcxproj", "{BE3191FA-0361-4C87-A4A2-12777949E429}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imfx_plugin", "imfx_plugin\imfx_plugin.vcxproj", "{724D6FF5-7FC8-4FFB-ABF0-83B5594B7C21}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imfx_interface", "imfx_interface\imfx_interface.vcxproj", "{81608352-6688-4E92-AC1C-2FF622F1444A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Win32 = Release|Win32
@@ -28,8 +44,31 @@ Global
 		{F431E06D-62CB-4BA0-B569-3D204AA1CFAE}.Release|Win32.Build.0 = Release|Win32
 		{5DC17EA4-6A82-4F5D-88C1-189877AA9A16}.Release|Win32.ActiveCfg = Release|Win32
 		{5DC17EA4-6A82-4F5D-88C1-189877AA9A16}.Release|Win32.Build.0 = Release|Win32
+		{A7FEC44C-6F78-428B-AB15-619DA14BB3D9}.Release|Win32.ActiveCfg = Release|Win32
+		{A7FEC44C-6F78-428B-AB15-619DA14BB3D9}.Release|Win32.Build.0 = Release|Win32
+		{73F96002-2704-4BFF-AAA7-A649D4F9BCB6}.Release|Win32.ActiveCfg = Release|Win32
+		{73F96002-2704-4BFF-AAA7-A649D4F9BCB6}.Release|Win32.Build.0 = Release|Win32
+		{63D4ABC3-8374-44FC-B2B5-F699A29FEF50}.Release|Win32.ActiveCfg = Release|Win32
+		{63D4ABC3-8374-44FC-B2B5-F699A29FEF50}.Release|Win32.Build.0 = Release|Win32
+		{6CC897F1-8725-4550-BD23-709E79C5AF5B}.Release|Win32.ActiveCfg = Release|Win32
+		{6CC897F1-8725-4550-BD23-709E79C5AF5B}.Release|Win32.Build.0 = Release|Win32
+		{BE3191FA-0361-4C87-A4A2-12777949E429}.Release|Win32.ActiveCfg = Release|Win32
+		{BE3191FA-0361-4C87-A4A2-12777949E429}.Release|Win32.Build.0 = Release|Win32
+		{724D6FF5-7FC8-4FFB-ABF0-83B5594B7C21}.Release|Win32.ActiveCfg = Release|Win32
+		{724D6FF5-7FC8-4FFB-ABF0-83B5594B7C21}.Release|Win32.Build.0 = Release|Win32
+		{81608352-6688-4E92-AC1C-2FF622F1444A}.Release|Win32.ActiveCfg = Release|Win32
+		{81608352-6688-4E92-AC1C-2FF622F1444A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7FEC44C-6F78-428B-AB15-619DA14BB3D9} = {4AC0A0ED-A917-42A8-B497-F217C759BF9A}
+		{73F96002-2704-4BFF-AAA7-A649D4F9BCB6} = {4AC0A0ED-A917-42A8-B497-F217C759BF9A}
+		{63D4ABC3-8374-44FC-B2B5-F699A29FEF50} = {4AC0A0ED-A917-42A8-B497-F217C759BF9A}
+		{6CC897F1-8725-4550-BD23-709E79C5AF5B} = {4AC0A0ED-A917-42A8-B497-F217C759BF9A}
+		{BE3191FA-0361-4C87-A4A2-12777949E429} = {4AC0A0ED-A917-42A8-B497-F217C759BF9A}
+		{724D6FF5-7FC8-4FFB-ABF0-83B5594B7C21} = {4AC0A0ED-A917-42A8-B497-F217C759BF9A}
+		{81608352-6688-4E92-AC1C-2FF622F1444A} = {4AC0A0ED-A917-42A8-B497-F217C759BF9A}
 	EndGlobalSection
 EndGlobal

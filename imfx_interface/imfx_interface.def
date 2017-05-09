@@ -1,0 +1,14 @@
+EXPORTS
+
+IMFX_init 								@1
+IMFX_destory							@2
+IMFX_reset								@3
+IMFX_decode_to_system					@4
+IMFX_decode_and_buildBack_to_system		@5
+IMFX_encode								@6
+IMFX_display							@7
+IMFX_draw_polyon						@8
+IMFX_encode2JpgFile             		@9
+IMFX_SnapJpegFromVideo					@10
+IMFX_decode								@11
+IMFX_displayEx							@12
