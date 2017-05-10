@@ -5,9 +5,6 @@
 
 /* 定时器尝试最大次数 */
 #define OSTOTAL_TIMERID_TRYNUM (1000)
-#define IN 
-#define OUT
-#define INOUT
 
 /* 定时器Flag标记 */
 #define  OSTIME_KILL_SYNCHRONOUS  0x1

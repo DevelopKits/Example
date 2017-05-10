@@ -6,8 +6,6 @@
 /* 定时器的头文件 */
 #include "os_timer.h"
 
-#pragma comment(lib,"winmm.lib")
-
 
 /* 定时器的定时精度范围 */
 #define OSSYSTIME_MININTERVAL (1)

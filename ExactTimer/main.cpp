@@ -1,6 +1,5 @@
 #include "MsTimer.h"
 #include "MyLogger.h"
-#include "os_timer.h"
 
 MyLogger * pMyLogger = NULL;
 
