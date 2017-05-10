@@ -61,6 +61,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALLBuild", "ALLBuild\ALLBui
 		{B12702AD-ABFB-343A-A199-8E24837244A3} = {B12702AD-ABFB-343A-A199-8E24837244A3}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExactTimer", "ExactTimer\ExactTimer.vcxproj", "{0736FAED-1A17-470C-B0FC-40DAAED0C08B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Win32 = Release|Win32
@@ -92,6 +94,8 @@ Global
 		{81608352-6688-4E92-AC1C-2FF622F1444A}.Release|Win32.Build.0 = Release|Win32
 		{DE168FA2-ED95-4A0D-BD42-5912F000A0BB}.Release|Win32.ActiveCfg = Release|Win32
 		{DE168FA2-ED95-4A0D-BD42-5912F000A0BB}.Release|Win32.Build.0 = Release|Win32
+		{0736FAED-1A17-470C-B0FC-40DAAED0C08B}.Release|Win32.ActiveCfg = Release|Win32
+		{0736FAED-1A17-470C-B0FC-40DAAED0C08B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
