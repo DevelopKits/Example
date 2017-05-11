@@ -43,7 +43,7 @@
        <height>28</height>
       </size>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -228,7 +228,7 @@
            <x>10</x>
            <y>60</y>
            <width>271</width>
-           <height>34</height>
+           <height>35</height>
           </rect>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -260,7 +260,7 @@
              <string>确定(&amp;O)</string>
             </property>
             <property name="icon">
-             <iconset resource="main.qrc">
+             <iconset>
               <normaloff>:/image/update.png</normaloff>:/image/update.png</iconset>
             </property>
             <property name="iconSize">
@@ -286,7 +286,7 @@
              <string>取消(&amp;C)</string>
             </property>
             <property name="icon">
-             <iconset resource="main.qrc">
+             <iconset>
               <normaloff>:/image/close.png</normaloff>:/image/close.png</iconset>
             </property>
             <property name="iconSize">
@@ -306,8 +306,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="main.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

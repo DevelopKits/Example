@@ -8,7 +8,7 @@ MyMessage::MyMessage(QDialog* parent /*= 0*/)
 	connect(ui.m_btnInfo, SIGNAL(clicked()), this, SLOT(onInfo()));
 	connect(ui.m_btnWarn, SIGNAL(clicked()), this, SLOT(onWarn()));
 	connect(ui.m_btnError, SIGNAL(clicked()), this, SLOT(onError()));
-	myHelper::FormInCenter(this);
+	/*myHelper::FormInCenter(this);*/
 }
 
 MyMessage::~MyMessage()
