@@ -1,5 +1,19 @@
 #include "rsatest.h"
 
+const char  *_base64_encode_chars =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+const signed char _base64_decode_chars[] =
+{
+	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63,
+	52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1,
+	-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+	17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26,
+	27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+	42, 43, 44, 45, 46, 47, 48, 49, 50, 51
+};
+
 RSATest::RSATest(QWidget *parent)
 	: QDialog(parent)
 {
@@ -7,6 +21,11 @@ RSATest::RSATest(QWidget *parent)
 	CreateKey();
 	connect(ui.m_btnEncode, SIGNAL(clicked()), this, SLOT(Encode()));
 	connect(ui.m_btnDecode, SIGNAL(clicked()), this, SLOT(Decode()));
+	char    pBufKey[1024] = { 0 };
+	Base64Encode("Swartz", 6, pBufKey);
+	char    pBufAns[1024] = { 0 };
+	Base64Decode(pBufKey, 1024, pBufAns);
+	int m = 1 + 2;
 }
 
 RSATest::~RSATest()
@@ -116,6 +135,128 @@ void RSATest::Decode()
 
 int RSATest::Base64Encode(const char* pInputBuf, int nInputBufLen, char* pOutputBuf)
 {
-	int index = 0;
+	unsigned char c1;
+	unsigned char c2;
+	unsigned char c3;
+	int     i = 0;
+	int     index = 0;
+
+	if ((NULL == pInputBuf) || (NULL == pOutputBuf))
+	{
+		return -1;
+	}
+
+	while (i < nInputBufLen)
+	{
+		/* read the first byte */
+		c1 = pInputBuf[i++];
+		if (i == nInputBufLen)         ///< pad with "="
+		{
+			pOutputBuf[index++] = _base64_encode_chars[c1 >> 2];
+			pOutputBuf[index++] = _base64_encode_chars[(c1 & 0x3) << 4];
+			pOutputBuf[index++] = '=';
+			pOutputBuf[index++] = '=';
+			break;
+		}
+
+		/* read the second byte */
+		c2 = pInputBuf[i++];
+		if (i == nInputBufLen)        ///< pad with "="
+		{
+			pOutputBuf[index++] = _base64_encode_chars[c1 >> 2];
+			pOutputBuf[index++] = _base64_encode_chars[((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4)];
+			pOutputBuf[index++] = _base64_encode_chars[(c2 & 0xF) << 2];
+			pOutputBuf[index++] = '=';
+			break;
+		}
+
+		/* read the third byte */
+		c3 = pInputBuf[i++];
+
+		/* convert into four bytes string */
+		pOutputBuf[index++] = _base64_encode_chars[c1 >> 2];
+		pOutputBuf[index++] = _base64_encode_chars[((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4)];
+		pOutputBuf[index++] = _base64_encode_chars[((c2 & 0xF) << 2) | ((c3 & 0xC0) >> 6)];
+		pOutputBuf[index++] = _base64_encode_chars[c3 & 0x3F];
+	}
+
+	return index;
+}
+
+
+int RSATest::Base64Decode(const char *pInputBuf, int nInputBufLen, char *pOutputBuf)
+{
+	signed char c1, c2, c3, c4;
+	int     	i = 0;
+	int     	index = 0;
+
+	while (i < nInputBufLen)
+	{
+		// read the first byte
+		do
+		{
+			c1 = _base64_decode_chars[(int)pInputBuf[i++]];
+		} while ((i < nInputBufLen) && (c1 == -1));
+
+		if (c1 == -1)
+		{
+			break;
+		}
+
+		// read the second byte
+		do
+		{
+			c2 = _base64_decode_chars[(int)pInputBuf[i++]];
+		} while ((i < nInputBufLen) && (c2 == -1));
+
+		if (c2 == -1)
+		{
+			break;
+		}
+
+		// assamble the first byte
+		pOutputBuf[index++] = (char)((c1 << 2) | ((c2 & 0x30) >> 4));
+
+		// read the third byte
+		do
+		{
+			c3 = pInputBuf[i++];
+			if (c3 == 61)  // meet with "=", break
+			{
+				return index;
+			}
+
+			c3 = _base64_decode_chars[(int)c3];
+		} while ((i < nInputBufLen) && (c3 == -1));
+
+		if (c3 == -1)
+		{
+			break;
+		}
+
+		// assabmel the second byte
+		pOutputBuf[index++] = (char)(((c2 & 0XF) << 4) | ((c3 & 0x3C) >> 2));
+
+		// read the fourth byte
+		do
+		{
+			c4 = pInputBuf[i++];
+			if (c4 == 61)  // meet with "=", break
+			{
+				return index;
+			}
+
+			c4 = _base64_decode_chars[(int)c4];
+		} while ((i < nInputBufLen) && (c4 == -1));
+
+		if (c4 == -1)
+		{
+			break;
+		}
+
+		// assamble the third byte
+		pOutputBuf[index++] = (char)(((c3 & 0x03) << 6) | c4);
+	}
+
 	return index;
 }

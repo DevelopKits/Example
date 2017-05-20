@@ -31,6 +31,8 @@ private:
 	string m_strdata;
 	/* BASE64加密算法实现 */
 	int	Base64Encode(const char* pInputBuf, int nInputBufLen, char* pOutputBuf);
+	/* BASE64解密算法实现 */
+	int	Base64Decode(const char *pInputBuf, int nInputBufLen, char *pOutputBuf);
 
 
 };
