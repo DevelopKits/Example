@@ -73,6 +73,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GetBaseInfo", "GetBaseInfo\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RSATest", "RSATest\RSATest.vcxproj", "{36B06A2A-2F5E-4A33-9FF5-38F272767876}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XmlParse", "XmlParse\XmlParse.vcxproj", "{E15ED587-3FF6-421B-AFF8-2CA034839F34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Win32 = Release|Win32
@@ -112,6 +114,8 @@ Global
 		{480CAFB8-7E93-4166-931B-F6BBD60824DB}.Release|Win32.Build.0 = Release|Win32
 		{36B06A2A-2F5E-4A33-9FF5-38F272767876}.Release|Win32.ActiveCfg = Release|Win32
 		{36B06A2A-2F5E-4A33-9FF5-38F272767876}.Release|Win32.Build.0 = Release|Win32
+		{E15ED587-3FF6-421B-AFF8-2CA034839F34}.Release|Win32.ActiveCfg = Release|Win32
+		{E15ED587-3FF6-421B-AFF8-2CA034839F34}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

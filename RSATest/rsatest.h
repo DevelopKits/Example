@@ -7,6 +7,8 @@
 #include <openssl/rsa.h>
 #include <string>
 #include <iostream>
+#include <io.h>
+#include <fstream>
 using namespace  std;
 class RSATest : public QDialog
 {
@@ -21,6 +23,8 @@ public:
 	std::string DecryptData(string data);
 	//	加密
 	std::string EncryptData(string data);
+	//获取公钥的字符
+	std::string ReadPublicKey();
 public slots:
 	void Encode();
 	void Decode();

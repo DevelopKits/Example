@@ -21,11 +21,6 @@ RSATest::RSATest(QWidget *parent)
 	CreateKey();
 	connect(ui.m_btnEncode, SIGNAL(clicked()), this, SLOT(Encode()));
 	connect(ui.m_btnDecode, SIGNAL(clicked()), this, SLOT(Decode()));
-	char    pBufKey[1024] = { 0 };
-	Base64Encode("Swartz", 6, pBufKey);
-	char    pBufAns[1024] = { 0 };
-	Base64Decode(pBufKey, 1024, pBufAns);
-	int m = 1 + 2;
 }
 
 RSATest::~RSATest()
@@ -120,9 +115,34 @@ std::string RSATest::EncryptData(string data)
 
 }
 
+std::string RSATest::ReadPublicKey()
+{
+	//ÉÐÎ´Éú³Ékey
+	if (-1 == access("public.pem", 0))
+	{
+		CreateKey();
+	}
+	ifstream file("public.pem");
+	std::string tsum, ss;
+	std::string keyb = "-----BEGIN RSA PUBLIC KEY-----";
+	std::string keye = "-----END RSA PUBLIC KEY-----";
+	while (getline(file, ss))
+	{
+		if (ss == keyb || ss == keye)
+		{
+			continue;
+		}
+		tsum.append(ss);
+	}
+	return tsum;
+}
+
 void RSATest::Encode()
 {
 	string strdata = ui.m_edit1->text().toStdString();
+	char    pBufKey[1024] = { 0 };
+	Base64Encode(strdata.c_str(), strdata.length(), pBufKey);
+	strdata = pBufKey;
 	m_strdata = EncryptData(strdata);
 	ui.m_edit2->setText(QString::fromStdString(m_strdata));
 }
@@ -130,6 +150,9 @@ void RSATest::Encode()
 void RSATest::Decode()
 {
 	string strdata = DecryptData(m_strdata);
+	char    pBufKey[1024] = { 0 };
+	Base64Decode(strdata.c_str(), strdata.length(), pBufKey);
+	strdata = pBufKey;
 	ui.m_edit3->setText(QString::fromStdString(strdata));
 }
 
