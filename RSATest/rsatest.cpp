@@ -141,8 +141,8 @@ void RSATest::Encode()
 {
 	string strdata = ui.m_edit1->text().toStdString();
 	char    pBufKey[1024] = { 0 };
-	Base64Encode(strdata.c_str(), strdata.length(), pBufKey);
-	strdata = pBufKey;
+	int nlen=Base64Encode(strdata.c_str(), strdata.length(), pBufKey);
+	strdata = string(pBufKey,nlen);
 	m_strdata = EncryptData(strdata);
 	ui.m_edit2->setText(QString::fromStdString(m_strdata));
 }
@@ -151,7 +151,8 @@ void RSATest::Decode()
 {
 	string strdata = DecryptData(m_strdata);
 	char    pBufKey[1024] = { 0 };
-	Base64Decode(strdata.c_str(), strdata.length(), pBufKey);
+	int nlen = Base64Decode(strdata.c_str(), strdata.length(), pBufKey);
+	strdata = string(pBufKey, nlen);
 	strdata = pBufKey;
 	ui.m_edit3->setText(QString::fromStdString(strdata));
 }
