@@ -1,0 +1,133 @@
+Opened log file 'd:\debug.log'
+0:006> ~*kbn
+
+   0  Id: 198c.2218 Suspend: 1 Teb: 005cf000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 0073d9a4 77302bf3 00000001 0073db80 00000001 ntdll!NtWaitForMultipleObjects+0xc
+01 0073db38 74adef5b 00000001 0073db80 00000000 KERNELBASE!WaitForMultipleObjectsEx+0x103
+02 0073dba8 74adeda3 00000000 0073f884 ffffffff USER32!RealMsgWaitForMultipleObjectsEx+0x15b
+*** WARNING: Unable to verify checksum for F:\Example\DeadMutex\Bin\Qt5Core.dll
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for F:\Example\DeadMutex\Bin\Qt5Core.dll - 
+03 0073dbd0 6ce80e81 00000000 0073f884 ffffffff USER32!MsgWaitForMultipleObjectsEx+0x63
+WARNING: Stack unwind information not available. Following frames may be wrong.
+04 0073dc14 772ef6e7 00000025 0000001d 0073dc4c Qt5Core!QEventDispatcherWin32::processEvents+0x581
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for C:\WINDOWS\System32\windows.storage.dll - 
+05 0073dc84 7416b2ca 00000000 004e0000 004f0044 KERNELBASE!StrStrIW+0x1a7
+06 0073ef50 00010284 02000002 0111dbe0 04000105 windows_storage!ILCloneFirst+0x57a
+07 0073ef54 02000002 0111dbe0 04000105 cf7227ac 0x10284
+08 0073ef58 0111dbe0 04000105 cf7227ac 00000000 0x2000002
+09 0073ef5c 04000105 cf7227ac 00000000 00000098 0x111dbe0
+0a 0073ef60 cf7227ac 00000000 00000098 03000003 0x4000105
+0b 0073ef64 00000000 00000098 03000003 0000000a 0xcf7227ac
+
+   1  Id: 198c.2da0 Suspend: 1 Teb: 005d2000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 0098fa3c 7741a696 000000b4 0001fcf8 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 0098fc44 75118744 00018458 75118720 98c8621a ntdll!TppWorkerThread+0x2a6
+02 0098fc58 7744587d 00018458 0de11175 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 0098fca0 7744584d ffffffff 77466325 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 0098fcb0 00000000 7741a3f0 00018458 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   2  Id: 198c.428 Suspend: 1 Teb: 005d5000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 00acfcfc 7741a696 000000b4 000201c8 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 00acff04 75118744 00018458 75118720 98fc615a ntdll!TppWorkerThread+0x2a6
+02 00acff18 7744587d 00018458 0dd512b5 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 00acff60 7744584d ffffffff 77466325 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 00acff70 00000000 7741a3f0 00018458 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   3  Id: 198c.3470 Suspend: 1 Teb: 005d8000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 00c3f85c 7741a696 000000b4 00021d48 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 00c3fa64 75118744 00018458 75118720 9893643a ntdll!TppWorkerThread+0x2a6
+02 00c3fa78 7744587d 00018458 0dba1715 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 00c3fac0 7744584d ffffffff 77466325 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 00c3fad0 00000000 7741a3f0 00018458 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   4  Id: 198c.29a0 Suspend: 1 Teb: 005db000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 029afd3c 772f8839 0000024c 00000000 00000000 ntdll!NtWaitForSingleObject+0xc
+01 029afdb0 772f8792 0000024c ffffffff 00000000 KERNELBASE!WaitForSingleObjectEx+0x99
+*** WARNING: Unable to verify checksum for F:\Example\DeadMutex\Bin\DeadMutex.exe
+02 029afdc4 00b347c9 0000024c ffffffff 029afde8 KERNELBASE!WaitForSingleObject+0x12
+03 029afdd4 75118744 00000000 75118720 9aca63aa DeadMutex!thread1+0x19 [f:\example\deadmutex\main.cpp @ 10]
+04 029afde8 7744587d 00000000 0fe313e5 00000000 KERNEL32!BaseThreadInitThunk+0x24
+05 029afe30 7744584d ffffffff 77466325 00000000 ntdll!__RtlUserThreadStart+0x2f
+06 029afe40 00000000 00b311b8 00000000 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   5  Id: 198c.2dac Suspend: 1 Teb: 005de000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 02b0fc4c 773035c9 00000000 02b0fc90 7c74c8e7 ntdll!NtDelayExecution+0xc
+01 02b0fcb4 7730351f 0000000a 00000000 02b0fcd0 KERNELBASE!SleepEx+0x99
+02 02b0fcc4 00b34802 0000000a 02b0fce4 75118744 KERNELBASE!Sleep+0xf
+03 02b0fcd0 75118744 00000000 75118720 9ae062a6 DeadMutex!thread2+0x22 [f:\example\deadmutex\main.cpp @ 19]
+04 02b0fce4 7744587d 00000000 0fc910f9 00000000 KERNEL32!BaseThreadInitThunk+0x24
+05 02b0fd2c 7744584d ffffffff 77466325 00000000 ntdll!__RtlUserThreadStart+0x2f
+06 02b0fd3c 00000000 00b311b3 00000000 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+#  6  Id: 198c.16a4 Suspend: 1 Teb: 005e1000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 02c4fa24 7748a539 0fbd1781 7748a500 7748a500 ntdll!DbgBreakPoint
+01 02c4fa54 75118744 00000000 75118720 9a94642a ntdll!DbgUiRemoteBreakin+0x39
+02 02c4fa68 7744587d 00000000 0fbd1765 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 02c4fab0 7744584d ffffffff 77466325 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 02c4fac0 00000000 7748a500 00000000 00000000 ntdll!_RtlUserThreadStart+0x1b
+0:006> !handle 0000024c f
+Handle 24c
+  Type         	Mutant
+  Attributes   	0
+  GrantedAccess	0x1f0001:
+         Delete,ReadControl,WriteDac,WriteOwner,Synch
+         QueryState
+  HandleCount  	2
+  PointerCount 	65536
+  Name         	<none>
+  Object Specific Information
+    Mutex is Owned
+    Mutant Owner 198c.2dac
+0:006> !locks
+
+Scanned 7 critical sections
+0:006> !cs
+-----------------------------------------
+DebugInfo          = 0x774f67e0
+Critical section   = 0x774f6600 (ntdll!RtlpProcessHeapsListLock+0x0)
+NOT LOCKED
+LockSemaphore      = 0x0
+SpinCount          = 0x020007d0
+-----------------------------------------
+DebugInfo          = 0x774f6800
+Critical section   = 0x00010248 (+0x10248)
+NOT LOCKED
+LockSemaphore      = 0x0
+SpinCount          = 0x020007d0
+-----------------------------------------
+DebugInfo          = 0x774f6840
+Critical section   = 0x73eca6f0 (SspiCli!SecPackageListLock+0x0)
+NOT LOCKED
+LockSemaphore      = 0x0
+SpinCount          = 0x0a0007d0
+-----------------------------------------
+DebugInfo          = 0x774f6860
+Critical section   = 0x02520248 (+0x2520248)
+NOT LOCKED
+LockSemaphore      = 0x0
+SpinCount          = 0x020007d0
+-----------------------------------------
+DebugInfo          = 0x774f68a0
+Critical section   = 0x75acae10 (SHELL32!g_lockObject+0x0)
+NOT LOCKED
+LockSemaphore      = 0x0
+SpinCount          = 0x0a0007d0
+-----------------------------------------
+DebugInfo          = 0x0001c8e0
+Critical section   = 0x72011394 (MPR!MPRProviderLock+0x0)
+NOT LOCKED
+LockSemaphore      = 0x0
+SpinCount          = 0x0a0007d0
+-----------------------------------------
+DebugInfo          = 0x000359d0
+Critical section   = 0x02a00248 (+0x2A00248)
+NOT LOCKED
+LockSemaphore      = 0x0
+SpinCount          = 0x020007d0

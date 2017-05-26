@@ -1,0 +1,75 @@
+Opened log file 'd:\debug.log'
+0:005> ~*kbn
+
+   0  Id: 490.1138 Suspend: 1 Teb: 006ef000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 005bd8ec 77302bf3 00000001 005bdac8 00000001 ntdll!NtWaitForMultipleObjects+0xc
+01 005bda80 74adef5b 00000001 005bdac8 00000000 KERNELBASE!WaitForMultipleObjectsEx+0x103
+02 005bdaf0 74adeda3 00000000 005bf7cc ffffffff USER32!RealMsgWaitForMultipleObjectsEx+0x15b
+*** WARNING: Unable to verify checksum for F:\Example\DebugEvent\Bin\Qt5Core.dll
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for F:\Example\DebugEvent\Bin\Qt5Core.dll - 
+03 005bdb18 6d330e81 00000000 005bf7cc ffffffff USER32!MsgWaitForMultipleObjectsEx+0x63
+WARNING: Stack unwind information not available. Following frames may be wrong.
+04 005bdb5c 772ef6e7 00000025 0000001d 005bdb94 Qt5Core!QEventDispatcherWin32::processEvents+0x581
+*** ERROR: Symbol file could not be found.  Defaulted to export symbols for C:\WINDOWS\System32\windows.storage.dll - 
+05 005bdbcc 7416b2ca 00000000 004e0000 004f0044 KERNELBASE!StrStrIW+0x1a7
+06 005bee98 005beee4 f10000f1 00000005 00860284 windows_storage!ILCloneFirst+0x57a
+07 005bee9c f10000f1 00000005 00860284 00860000 0x5beee4
+08 005beee4 008600c0 00000006 00860284 00860000 0xf10000f1
+09 005beee8 00000000 00860284 00860000 00000487 0x8600c0
+
+   1  Id: 490.236c Suspend: 1 Teb: 006f2000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 00b6f684 7741a696 000000b4 0086fd00 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 00b6f88c 75118744 00868458 75118720 421d44a8 ntdll!TppWorkerThread+0x2a6
+02 00b6f8a0 7744587d 00868458 1b5e30b8 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 00b6f8e8 7744584d ffffffff 77466341 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 00b6f8f8 00000000 7741a3f0 00868458 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   2  Id: 490.680 Suspend: 1 Teb: 006f5000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 00caf618 7741a696 000000b4 00870170 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 00caf820 75118744 00868458 75118720 4261443c ntdll!TppWorkerThread+0x2a6
+02 00caf834 7744587d 00868458 1b22302c 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 00caf87c 7744584d ffffffff 77466341 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 00caf88c 00000000 7741a3f0 00868458 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   3  Id: 490.284c Suspend: 1 Teb: 006f8000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 00defa6c 7741a696 000000b4 00871cd8 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 00defc74 75118744 00868458 75118720 42754080 ntdll!TppWorkerThread+0x2a6
+02 00defc88 7744587d 00868458 1b363480 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 00defcd0 7744584d ffffffff 77466341 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 00defce0 00000000 7741a3f0 00868458 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   4  Id: 490.2990 Suspend: 1 Teb: 006fb000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 02bef7c0 772f8839 0000024c 00000000 00000000 ntdll!NtWaitForSingleObject+0xc
+01 02bef834 772f8792 0000024c ffffffff 00000000 KERNELBASE!WaitForSingleObjectEx+0x99
+*** WARNING: Unable to verify checksum for F:\Example\DebugEvent\Bin\DebugEvent.exe
+02 02bef848 003e2441 0000024c ffffffff 02bef86c KERNELBASE!WaitForSingleObject+0x12
+03 02bef858 75118744 00000000 75118720 40154464 DebugEvent!thread1+0x11 [f:\example\debugevent\main.cpp @ 10]
+04 02bef86c 7744587d 00000000 195630e4 00000000 KERNEL32!BaseThreadInitThunk+0x24
+05 02bef8b4 7744584d ffffffff 77466341 00000000 ntdll!__RtlUserThreadStart+0x2f
+06 02bef8c4 00000000 003e1118 00000000 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+#  5  Id: 490.3b04 Suspend: 1 Teb: 006fe000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 02cefd44 7748a539 19263524 7748a500 7748a500 ntdll!DbgBreakPoint
+01 02cefd74 75118744 00000000 75118720 40654180 ntdll!DbgUiRemoteBreakin+0x39
+02 02cefd88 7744587d 00000000 19263580 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 02cefdd0 7744584d ffffffff 77466341 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 02cefde0 00000000 7748a500 00000000 00000000 ntdll!_RtlUserThreadStart+0x1b
+0:005> !handle 0000024c f
+Handle 24c
+  Type         	Event
+  Attributes   	0
+  GrantedAccess	0x1f0003:
+         Delete,ReadControl,WriteDac,WriteOwner,Synch
+         QueryState,ModifyState
+  HandleCount  	2
+  PointerCount 	65537
+  Name         	<none>
+  Object Specific Information
+    Event Type Manual Reset
+    Event is Waiting

@@ -1,0 +1,90 @@
+
+   0  Id: 385c.500 Suspend: 1 Teb: 00987000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 00b3d694 77302bf3 00000001 00b3d870 00000001 ntdll!NtWaitForMultipleObjects+0xc
+01 00b3d828 74adef5b 00000001 00b3d870 00000000 KERNELBASE!WaitForMultipleObjectsEx+0x103
+02 00b3d898 74adeda3 00000000 00b3f574 ffffffff USER32!RealMsgWaitForMultipleObjectsEx+0x15b
+03 00b3d8c0 66240e81 00000000 00b3f574 ffffffff USER32!MsgWaitForMultipleObjectsEx+0x63
+WARNING: Stack unwind information not available. Following frames may be wrong.
+04 00b3d904 772ef6e7 00000025 0000001d 00b3d93c Qt5Core!QEventDispatcherWin32::processEvents+0x581
+05 00b3d974 7416b2ca 00000000 004e0000 004f0044 KERNELBASE!StrStrIW+0x1a7
+06 00b3ec40 00f44fd0 000007ff 00f10000 00001008 windows_storage!ILCloneFirst+0x57a
+07 00b3ec44 00000000 00f10000 00001008 00f10000 0xf44fd0
+
+   1  Id: 385c.3360 Suspend: 1 Teb: 0098a000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 00ecf630 7741a696 00000090 00f13a00 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 00ecf838 75118744 00f13340 75118720 9492faa8 ntdll!TppWorkerThread+0x2a6
+02 00ecf84c 7744587d 00f13340 563b52b1 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 00ecf894 7744584d ffffffff 77466339 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 00ecf8a4 00000000 7741a3f0 00f13340 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   2  Id: 385c.3a9c Suspend: 1 Teb: 0098d000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 0110f940 7741a696 00000090 00f13fe8 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 0110fb48 75118744 00f13340 75118720 956ef9b8 ntdll!TppWorkerThread+0x2a6
+02 0110fb5c 7744587d 00f13340 57c75181 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 0110fba4 7744584d ffffffff 77466339 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 0110fbb4 00000000 7741a3f0 00f13340 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   3  Id: 385c.2538 Suspend: 1 Teb: 00990000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 0120fab0 7741a696 00000090 00f14340 00000010 ntdll!NtWaitForWorkViaWorkerFactory+0xc
+01 0120fcb8 75118744 00f13340 75118720 955efe28 ntdll!TppWorkerThread+0x2a6
+02 0120fccc 7744587d 00f13340 57f75731 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 0120fd14 7744584d ffffffff 77466339 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 0120fd24 00000000 7741a3f0 00f13340 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   4  Id: 385c.27b8 Suspend: 1 Teb: 00993000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 02f3f7e8 7740bffa 00dca328 00000000 00000000 ntdll!NtWaitForAlertByThreadId+0xc
+01 02f3f808 7740bf3e 00000000 00000000 ffffffff ntdll!RtlpWaitOnAddressWithTimeout+0x33
+02 02f3f84c 7740be35 00000004 00000000 00000000 ntdll!RtlpWaitOnAddress+0xa5
+03 02f3f888 7742b371 00dc1118 00dc1118 00000000 ntdll!RtlpWaitOnCriticalSection+0xb7
+04 02f3f8a8 7742b295 a558cd26 02f3f8c0 00dc2461 ntdll!RtlpEnterCriticalSectionContended+0xd1
+05 02f3f8b4 00dc2461 00dca324 02f3f8d4 75118744 ntdll!RtlEnterCriticalSection+0x45
+06 02f3f8c0 75118744 00000000 75118720 968dfa30 DeadCriticalSection!thread1+0x21 [f:\example\deadcriticalsection\main.cpp @ 11]
+07 02f3f8d4 7744587d 00000000 54245339 00000000 KERNEL32!BaseThreadInitThunk+0x24
+08 02f3f91c 7744584d ffffffff 77466339 00000000 ntdll!__RtlUserThreadStart+0x2f
+09 02f3f92c 00000000 00dc1118 00000000 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+   5  Id: 385c.2130 Suspend: 1 Teb: 00996000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 0303f7f0 7740bffa 00dca310 00000000 00000000 ntdll!NtWaitForAlertByThreadId+0xc
+01 0303f810 7740bf3e 00000000 00000000 ffffffff ntdll!RtlpWaitOnAddressWithTimeout+0x33
+02 0303f854 7740be35 00000004 00000000 00000000 ntdll!RtlpWaitOnAddress+0xa5
+03 0303f890 7742b371 00dc1055 00dc1055 00000000 ntdll!RtlpWaitOnCriticalSection+0xb7
+04 0303f8b0 7742b295 a4a8cd2e 0303f8c8 00dc2491 ntdll!RtlpEnterCriticalSectionContended+0xd1
+05 0303f8bc 00dc2491 00dca30c 0303f8dc 75118744 ntdll!RtlEnterCriticalSection+0x45
+06 0303f8c8 75118744 00000000 75118720 977dfa38 DeadCriticalSection!thread2+0x21 [f:\example\deadcriticalsection\main.cpp @ 18]
+07 0303f8dc 7744587d 00000000 55d45301 00000000 KERNEL32!BaseThreadInitThunk+0x24
+08 0303f924 7744584d ffffffff 77466339 00000000 ntdll!__RtlUserThreadStart+0x2f
+09 0303f934 00000000 00dc1055 00000000 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+#  6  Id: 385c.2324 Suspend: 1 Teb: 00999000 Unfrozen
+ # ChildEBP RetAddr  Args to Child              
+00 0317fe34 7748a539 55c05441 7748a500 7748a500 ntdll!DbgBreakPoint
+01 0317fe64 75118744 00000000 75118720 9769fc9c ntdll!DbgUiRemoteBreakin+0x39
+02 0317fe78 7744587d 00000000 55c054e5 00000000 KERNEL32!BaseThreadInitThunk+0x24
+03 0317fec0 7744584d ffffffff 77466339 00000000 ntdll!__RtlUserThreadStart+0x2f
+04 0317fed0 00000000 7748a500 00000000 00000000 ntdll!_RtlUserThreadStart+0x1b
+
+CritSec DeadCriticalSection!cs2+0 at 00dca324
+WaiterWoken        No
+LockCount          1
+RecursionCount     1
+OwningThread       2130
+EntryCount         0
+ContentionCount    1
+*** Locked
+
+CritSec DeadCriticalSection!cs1+0 at 00dca30c
+WaiterWoken        No
+LockCount          1
+RecursionCount     1
+OwningThread       27b8
+EntryCount         0
+ContentionCount    1
+*** Locked
+
+Scanned 9 critical sections
