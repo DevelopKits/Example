@@ -26,5 +26,6 @@ public:
 };
 
 
+
 extern "C" BASELIB_EXPORTS IBaseLib* CreateBaseLib();
 extern "C" BASELIB_EXPORTS void DestroyBaseLib(IBaseLib* pIBaseLib);

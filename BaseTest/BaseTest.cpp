@@ -25,6 +25,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	nret = pBaseLib->Sub(100, 20);
 	OutputDebugPrintf("DEBUGINFO| result = %d", nret);
 	DestroyBaseLib(pBaseLib);
+	while (true)
+	{
+		Sleep(100);
+	}
 	return 0;
 }
 

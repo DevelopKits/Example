@@ -4,6 +4,13 @@
 #include "stdafx.h"
 #include "BaseLib.h"
 
+//所有的调用该dll的地方会共享该变量，而不是复制一份数据
+#pragma data_seg(".Segment")
+int test = 0;
+#pragma data_seg()
+#pragma comment(linker, "/section:.Segment,rws")
+
+
 BOOL APIENTRY DllMain(HMODULE hModule,
 	DWORD  ul_reason_for_call,
 	LPVOID lpReserved
@@ -32,7 +39,8 @@ BASELIB_EXPORTS void DestroyBaseLib(IBaseLib* pIBaseLib)
 
 int BaseLibImpl::Add(int a, int b)
 {
-	return a + b;
+	test = test+ a + b;
+	return test;
 }
 
 int BaseLibImpl::Sub(int a, int b)
