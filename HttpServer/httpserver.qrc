@@ -1,0 +1,4 @@
+<RCC>
+    <qresource prefix="HttpServer">
+    </qresource>
+</RCC>
