@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
 	QString strData = readQssFromFile(strQssPath);
 	a.setStyleSheet(strData);
 
-	DEBUG_LOG("the application started");
+	ERROR_LOG("the application started");
 
 	IDataBase* m_pcDataBase = new(std::nothrow) CppSQLite3DB;
 	m_pcDataBase->OpenDataBase("Swartz.db");
@@ -140,5 +140,5 @@ int main(int argc, char *argv[])
 	{
 		DEBUG_LOG("sPlanID = "<<itor->sPlanID<<" ,bCheckFlag =  "<<itor->bCheckFlag<<"!");
 	}
-	return a.exec();
+	return 0;
 }

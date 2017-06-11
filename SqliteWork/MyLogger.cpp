@@ -8,7 +8,8 @@ MyLogger::MyLogger()
 {
 	log4cplus::initialize();
 	PropertyConfigurator::doConfigure(LOG4CPLUS_TEXT(MY_LOG_FILE));
-	logger = Logger::getRoot();
+	/*logger = Logger::getRoot();*/
+	logger = Logger::getInstance(LOG4CPLUS_TEXT("TEST"));
 }
 
 
