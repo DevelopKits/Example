@@ -10,6 +10,7 @@
 #define KEYMOUSEHOOK_API __declspec(dllimport)
 #endif
 
+#define WM_TEST WM_USER + 304 //自定义消息，用于和主程序通信
 #define WM_MYKEY WM_USER + 305 //自定义消息，用于和主程序通信
 #define WM_MYMOUSE WM_USER + 306 //自定义消息，用于和主程序通信
 

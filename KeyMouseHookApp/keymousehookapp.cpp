@@ -15,6 +15,7 @@ KeyMouseHookApp::~KeyMouseHookApp()
 
 bool KeyMouseHookApp::nativeEvent(const QByteArray &eventType, void *message, long *result)
 {
+
 	if (eventType == "windows_generic_MSG")
 	{
 		PMSG msg = (PMSG)message;
@@ -24,6 +25,7 @@ bool KeyMouseHookApp::nativeEvent(const QByteArray &eventType, void *message, lo
 		}
 		if (msg->message == WM_MYMOUSE)
 		{
+			
 			ui.m_TextEdit->insertPlainText("WM_MYMOUSE\n");
 		}
 
