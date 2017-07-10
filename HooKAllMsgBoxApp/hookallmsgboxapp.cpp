@@ -24,12 +24,11 @@ bool HooKAllMsgBoxApp::nativeEvent(const QByteArray &eventType, void *message, l
 		
 		if (msg->message == WM_MYMOUSE)
 		{
-			ui.m_TextEdit->insertPlainText("1"); 
 			TCHAR wndTitle[256];
 			::GetWindowText((HWND)msg->lParam, wndTitle, 256);
 			QString ret = QString::fromWCharArray(wndTitle);
 			ui.m_TextEdit->insertPlainText(ret);
-			/*ui.m_TextEdit->insertPlainText("\n");*/
+			ui.m_TextEdit->insertPlainText("\n");
 		}
 
 	}

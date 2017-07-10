@@ -87,7 +87,7 @@ int WINAPI UninitHook()
  int WINAPI InitHook(HWND hWnd)
 {
 	g_hWnd = hWnd;
-	g_hMouse = SetWindowsHookEx(WH_MOUSE_LL, (HOOKPROC)HookMouseProc, g_hInstDll, NULL);
+	g_hMouse = SetWindowsHookEx(WH_MOUSE, (HOOKPROC)HookMouseProc, g_hInstDll, NULL);
 	if (!g_hMouse)
 	{
 		UninitHook();
