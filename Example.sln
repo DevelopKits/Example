@@ -124,6 +124,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConfigTools", "ConfigTools\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConfigServer", "ConfigServer\ConfigServer.vcxproj", "{8784F06F-3FD2-4AFA-9FDA-9A0792F25AF4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MapFile", "MapFile\MapFile.vcxproj", "{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|ARM = Release|ARM
@@ -255,6 +257,10 @@ Global
 		{8784F06F-3FD2-4AFA-9FDA-9A0792F25AF4}.Release|Win32.ActiveCfg = Release|Win32
 		{8784F06F-3FD2-4AFA-9FDA-9A0792F25AF4}.Release|Win32.Build.0 = Release|Win32
 		{8784F06F-3FD2-4AFA-9FDA-9A0792F25AF4}.Release|x64.ActiveCfg = Release|Win32
+		{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}.Release|ARM.ActiveCfg = Release|Win32
+		{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}.Release|Win32.ActiveCfg = Release|Win32
+		{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}.Release|Win32.Build.0 = Release|Win32
+		{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
