@@ -126,6 +126,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConfigServer", "ConfigServe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MapFile", "MapFile\MapFile.vcxproj", "{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServiceApp", "ServiceApp\ServiceApp.vcxproj", "{AAEDF906-304A-4B20-A817-F75531697BD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|ARM = Release|ARM
@@ -261,6 +263,10 @@ Global
 		{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}.Release|Win32.ActiveCfg = Release|Win32
 		{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}.Release|Win32.Build.0 = Release|Win32
 		{2B762793-FCA0-47B6-8A61-C2FA51A31F5B}.Release|x64.ActiveCfg = Release|Win32
+		{AAEDF906-304A-4B20-A817-F75531697BD8}.Release|ARM.ActiveCfg = Release|Win32
+		{AAEDF906-304A-4B20-A817-F75531697BD8}.Release|Win32.ActiveCfg = Release|Win32
+		{AAEDF906-304A-4B20-A817-F75531697BD8}.Release|Win32.Build.0 = Release|Win32
+		{AAEDF906-304A-4B20-A817-F75531697BD8}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
