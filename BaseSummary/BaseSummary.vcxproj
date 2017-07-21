@@ -7,9 +7,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{195F540E-0BF6-452D-B7C0-B79CB02FAB51}</ProjectGuid>
+    <ProjectGuid>{52E66A24-F231-4DDC-B36B-3741B70715DC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>BaseDump</RootNamespace>
+    <RootNamespace>BaseSummary</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -47,7 +47,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AssemblyDebug>true</AssemblyDebug>
       <AdditionalLibraryDirectories>..\depend\PcapDmp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -59,7 +58,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BaseDump.cpp" />
+    <ClCompile Include="BaseSummary.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
