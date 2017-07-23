@@ -57,10 +57,10 @@ int trgb2jpeg(unsigned char* rgb_buffer, int width, int height, int quality, uns
 	return 0;
 }
 
-int tjpeg2yuv(unsigned char* jpeg_buffer, int jpeg_size, unsigned char** yuv_buffer, int* yuv_size, int* yuv_type)
+int tjpeg2yuv(unsigned char* jpeg_buffer, int jpeg_size, unsigned char** yuv_buffer, int* yuv_size, int* yuv_type, int& width, int &height)
 {
 	tjhandle handle = NULL;
-	int width, height, subsample, colorspace;
+	int  subsample, colorspace;
 	int flags = 0;
 	int padding = 1; // 1或4均可，但不能是0
 	int ret = 0;
@@ -97,7 +97,7 @@ int tyuv2jpeg(unsigned char* yuv_buffer, int yuv_size, int width, int height, in
 {
 	tjhandle handle = NULL;
 	int flags = 0;
-	int padding = 4; // 1或4均可，但不能是0
+	int padding = 1; // 1或4均可，但不能是0
 	int need_size = 0;
 	int ret = 0;
 
@@ -106,11 +106,11 @@ int tyuv2jpeg(unsigned char* yuv_buffer, int yuv_size, int width, int height, in
 	flags |= 0;
 
 	need_size = tjBufSizeYUV2(width, padding, height, subsample);
-	//if (need_size != yuv_size)
-	//{
-	//	printf("we detect yuv size: %d, but you give: %d, check again.\n", need_size, yuv_size);
-	//	return 0;
-	//}
+	if (need_size != yuv_size)
+	{
+		printf("we detect yuv size: %d, but you give: %d, check again.\n", need_size, yuv_size);
+		return 0;
+	}
 
 	ret = tjCompressFromYUV(handle, yuv_buffer, width, padding, height, subsample, jpeg_buffer, jpeg_size, quality, flags);
 	if (ret < 0)
@@ -140,39 +140,27 @@ int _tmain(int argc, _TCHAR* argv[])
 	fread(szbuf, nlength, 1, fp);
 	fclose(fp);
 
-	unsigned char* szbuf1=new unsigned char[nlength + 1];
+	unsigned char* szbuf1=NULL;
 	int nsize = 0;
 	int yuv_type = 0;
-
-	tjpeg2yuv(szbuf, nlength, &szbuf1, &nsize, &yuv_type);
+	int nwidth = 0;
+	int nheight = 0;
+	tjpeg2yuv(szbuf, nlength, &szbuf1, &nsize, &yuv_type, nwidth, nheight);
 	delete[]szbuf;
 
 	fp = fopen("2.yuv", "wb");
 	fwrite(szbuf1, 1, nsize, fp);
 	fclose(fp);
-	delete [] szbuf1;
 
-	fp = fopen("2.yuv", "rb");
-	fseek(fp, 0, SEEK_END);
-	nlength = ftell(fp);
-	unsigned char*szbuf2 = new unsigned char[nlength + 1];
-	fseek(fp, 0, SEEK_SET);
-	fread(szbuf2, nlength, 1, fp);
-	fclose(fp);
-
-	unsigned char* szbuf3 = new unsigned char[nlength + 1];
+	unsigned char* szbuf2=NULL /*= new unsigned char[nsize + 1]*/;
 	unsigned long ulsize = 0;
-	tyuv2jpeg(szbuf2, nlength, 300, 243, 1, &szbuf3, &ulsize, 1);
-
-	delete[]szbuf2;
+	tyuv2jpeg(szbuf1, nsize, nwidth, nheight, yuv_type, &szbuf2, &ulsize, 100);
 
 	fp = fopen("3.jpeg", "wb");
-	fwrite(szbuf3, 1, ulsize, fp);
+	fwrite(szbuf2, 1, ulsize, fp);
 	fclose(fp);
-	delete[] szbuf3;
-
-
-
+	delete[] szbuf2;
+	delete[] szbuf1;
 	return 0;
 }
 
