@@ -24,10 +24,8 @@ bool EventSocket::StartServer(int port, short workernum, unsigned int MaxConNum,
 	m_Server.connnum = MaxConNum;
 	m_Server.read_timeout = read_timeout;
 	m_Server.write_timeout = write_timeout;
-	
 	evthread_use_windows_threads();
 	m_Server.pBase = event_base_new();
-	const char** all_methods = event_get_supported_methods();
 
 	if (m_Server.pBase == NULL)
 	{
@@ -83,14 +81,8 @@ bool EventSocket::StartServer(int port, short workernum, unsigned int MaxConNum,
 				}
 				bufferevent_setcb(p->bufev, DoRead, NULL, DoError, p);
 				bufferevent_setwatermark(p->bufev, EV_READ, 0, MaxBuffLen);
-				bufferevent_enable(p->bufev, EV_READ | EV_WRITE);
-				struct timeval delayWriteTimeout;
-				delayWriteTimeout.tv_sec = m_Server.write_timeout;
-				delayWriteTimeout.tv_usec = 0;
-				struct timeval delayReadTimeout;
-				delayReadTimeout.tv_sec = m_Server.read_timeout;
-				delayReadTimeout.tv_usec = 0;
-				bufferevent_set_timeouts(p->bufev, &delayReadTimeout, &delayWriteTimeout);
+				//bufferevent_enable(p->bufev, EV_READ | EV_WRITE);
+				
 				p->owner = &m_Server.pWorker[i];
 				p = p->next;
 			}
@@ -141,7 +133,30 @@ void EventSocket::StopServer()
 
 void EventSocket::DoAccept(struct evconnlistener *listener, evutil_socket_t fd, struct sockaddr *sa, int socklen, void *user_data)
 {
-	evutil_make_socket_nonblocking(fd);
+	// 此处为监听线程的event.不做处理.
+	Server *pServer = (Server *)user_data;
+	//主线程处做任务分发.
+	int nCurrent = pServer->nCurrentWorker++%pServer->workernum;
+	//当前线程所在ID号
+	Worker &pWorker = pServer->pWorker[nCurrent];
+	//通知线程开始读取数据,用于分配哪一个线程来处理此处的event事件
+	Conn *pConn = pWorker.GetFreeConn();
+	if (pConn == NULL)
+	{
+		return;
+	}
+	pConn->fd = fd;
+	evutil_make_socket_nonblocking(pConn->fd);
+	bufferevent_setfd(pConn->bufev, pConn->fd);
+
+	struct timeval delayWriteTimeout;
+	delayWriteTimeout.tv_sec = pServer->write_timeout;
+	delayWriteTimeout.tv_usec = 0;
+	struct timeval delayReadTimeout;
+	delayReadTimeout.tv_sec = pServer->read_timeout;
+	delayReadTimeout.tv_usec = 0;
+	bufferevent_set_timeouts(pConn->bufev, &delayReadTimeout, &delayWriteTimeout);
+	bufferevent_enable(pConn->bufev, EV_READ | EV_WRITE);
 }
 
 void EventSocket::DoRead(struct bufferevent *bev, void *ctx)
