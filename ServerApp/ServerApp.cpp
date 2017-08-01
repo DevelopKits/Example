@@ -7,7 +7,7 @@
 int _tmain(int argc, _TCHAR* argv[])
 {
 	EventSocket* pEventSocket = new EventSocket;
-	pEventSocket->StartServer(5000,1, 100,2 * 60, 2 * 60);
+	pEventSocket->StartServer(5000,20000,5, 5);
 	getchar();
 	return 0;
 }

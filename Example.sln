@@ -164,6 +164,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Depend", "Depend", "{94CBB81F-734F-4729-B708-58B8B33AEDE4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerApp", "ServerApp\ServerApp.vcxproj", "{603548F9-F090-42F5-82DC-29CF7596EA9F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DF589F7F-993D-4E67-A316-897F654701B1} = {DF589F7F-993D-4E67-A316-897F654701B1}
+		{D40C2981-744A-45CB-9157-254A76DAB886} = {D40C2981-744A-45CB-9157-254A76DAB886}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

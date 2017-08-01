@@ -1,6 +1,5 @@
 #ifndef _EVENT_SOCKET_H
 #define _EVENT_SOCKET_H
-
 #include "EventSocketDefine.h"
 class EventSocket
 {
@@ -9,7 +8,7 @@ public:
 	~EventSocket(void);
 public:
 	//端口号，线程数 ，最大连接数 ,读写超时
-	bool StartServer(int port, short workernum, unsigned int MaxConNum, int read_timeout, int write_timeout);
+	bool StartServer(int port, unsigned int connnum, int read_timeout, int write_timeout);
 	void StopServer();
 
 private:
@@ -22,6 +21,7 @@ private:
 private:
 	//当前服务器对象
 	Server m_Server;
+
 };
 
 

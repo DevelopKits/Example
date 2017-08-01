@@ -10,15 +10,44 @@
 #include <event2/bufferevent.h>
 #include <event2/thread.h>
 
-#define MaxBuffLen 4096
+#include <list>
+#include <iostream>
+#include <string>
 
+using namespace std;
+#define MaxBuffLen  1024*4
 
-struct _Server ;
-struct _Worker ;
-struct _Conn ;
-struct _ConnList ;
+struct _Conn;
+struct _Worker;
 
-// 连接对象
+//服务器属性封装对象
+struct _Server
+{
+	
+	bool bStart;
+	short nPort;
+	unsigned int connnum;
+	int read_timeout;
+	int write_timeout;
+	struct evconnlistener *pListener;
+	struct event_base *pBase;
+	HANDLE hThread;
+	_Worker *pWorker;
+};
+//连接对象列表
+struct _ConnList
+{
+	_ConnList()
+	{
+		head = NULL;
+		tail = NULL;
+		plistConn = NULL;
+	}
+	_Conn *head;
+	_Conn *tail;
+	_Conn *plistConn;
+};
+//连接对象
 struct _Conn
 {
 	_Conn()
@@ -50,22 +79,6 @@ struct _Conn
 	_Conn *next;
 };
 
-//连接对象列表
-struct _ConnList
-{
-	_Conn *head;
-	_Conn *tail;
-	_Conn *plistConn;
-	_ConnList()
-	{
-		head = NULL;
-		tail = NULL;
-		plistConn = NULL;
-	}
-	
-};
-
-
 //工作线程封装对象.
 struct _Worker
 {
@@ -74,10 +87,19 @@ struct _Worker
 		pWokerbase = NULL;
 		hThread = INVALID_HANDLE_VALUE;
 		pListConn = NULL;
+		InitializeCriticalSection(&cs);
+	}
+	~_Worker()
+	{
+		pWokerbase = NULL;
+		hThread = INVALID_HANDLE_VALUE;
+		pListConn = NULL;
+		DeleteCriticalSection(&cs);
 	}
 	struct event_base *pWokerbase;
 	HANDLE hThread;
 	_ConnList *pListConn;
+	CRITICAL_SECTION cs;
 	inline _Conn* GetFreeConn()
 	{
 		_Conn*pItem = NULL;
@@ -93,22 +115,6 @@ struct _Worker
 		pListConn->tail->next = pItem;
 		pListConn->tail = pItem;
 	}
-};
-
-//服务器属性封装对象
-struct _Server
-{
-	bool bStart;
-	short nPort;
-	short workernum;
-	unsigned int connnum;
-	volatile int nCurrentWorker;
-	int read_timeout;
-	int write_timeout;
-	struct evconnlistener *pListener;
-	struct event_base *pBase;
-	HANDLE hThread;
-	_Worker *pWorker;
 };
 
 typedef struct _Server Server;
