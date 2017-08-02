@@ -7,16 +7,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5D98FD1F-DA0D-4505-B18E-5F2B815926E0}</ProjectGuid>
+    <ProjectGuid>{96E616A3-8B87-499F-BC91-641EA370912A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Builder</RootNamespace>
+    <RootNamespace>Bridge</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -52,15 +52,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Builder.h" />
-    <ClInclude Include="Product.h" />
+    <ClInclude Include="Abstraction.h" />
+    <ClInclude Include="AbstractionImp.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Builder.cpp" />
+    <ClCompile Include="Abstraction.cpp" />
+    <ClCompile Include="AbstractionImp.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Product.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

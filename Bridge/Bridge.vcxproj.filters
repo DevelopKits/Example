@@ -24,10 +24,10 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Product.h">
+    <ClInclude Include="Abstraction.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Builder.h">
+    <ClInclude Include="AbstractionImp.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,10 +38,10 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Product.cpp">
+    <ClCompile Include="Abstraction.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Builder.cpp">
+    <ClCompile Include="AbstractionImp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

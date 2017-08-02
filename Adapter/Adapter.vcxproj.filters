@@ -24,10 +24,7 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Product.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Builder.h">
+    <ClInclude Include="Adapter.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,10 +35,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Product.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Builder.cpp">
+    <ClCompile Include="Adapter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,9 +7,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5D98FD1F-DA0D-4505-B18E-5F2B815926E0}</ProjectGuid>
+    <ProjectGuid>{2D7C809E-413F-40A3-B839-4D9397337240}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Builder</RootNamespace>
+    <RootNamespace>Prototype</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -52,15 +52,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Builder.h" />
-    <ClInclude Include="Product.h" />
+    <ClInclude Include="Prototype.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Builder.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Product.cpp" />
+    <ClCompile Include="Prototype.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
