@@ -187,6 +187,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Adapter", "Adapter\Adapter.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Decorator", "Decorator\Decorator.vcxproj", "{6B2B5AB6-BE11-4D35-A957-E85F7FA8D807}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Redis", "Redis", "{12E36EF8-AB03-433B-8CB5-7DD6B88E9F68}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Redis-Client", "Redis-Client\Redis-Client.vcxproj", "{FC846892-4DAD-4BE2-8489-93CC739E82A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Win32 = Release|Win32
@@ -296,6 +300,8 @@ Global
 		{85962F5C-D866-443A-B517-3110C5C720A1}.Release|Win32.Build.0 = Release|Win32
 		{6B2B5AB6-BE11-4D35-A957-E85F7FA8D807}.Release|Win32.ActiveCfg = Release|Win32
 		{6B2B5AB6-BE11-4D35-A957-E85F7FA8D807}.Release|Win32.Build.0 = Release|Win32
+		{FC846892-4DAD-4BE2-8489-93CC739E82A1}.Release|Win32.ActiveCfg = Release|Win32
+		{FC846892-4DAD-4BE2-8489-93CC739E82A1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -343,5 +349,6 @@ Global
 		{96E616A3-8B87-499F-BC91-641EA370912A} = {33E21A15-83B3-4A09-BB17-1163307B3978}
 		{85962F5C-D866-443A-B517-3110C5C720A1} = {33E21A15-83B3-4A09-BB17-1163307B3978}
 		{6B2B5AB6-BE11-4D35-A957-E85F7FA8D807} = {33E21A15-83B3-4A09-BB17-1163307B3978}
+		{FC846892-4DAD-4BE2-8489-93CC739E82A1} = {12E36EF8-AB03-433B-8CB5-7DD6B88E9F68}
 	EndGlobalSection
 EndGlobal
