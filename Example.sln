@@ -199,6 +199,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hiredis", "hiredis\msvs\vs-
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win32_interop", "hiredis\msvs\vs-solutions\vs2013\win32_interop.vcxproj", "{8C07F811-C81C-432C-B334-1AE6FAECF951}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemoryPool", "MemoryPool\MemoryPool.vcxproj", "{E66587B7-FDFE-42AA-A3DC-FACCD511279C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Win32 = Release|Win32
@@ -314,6 +316,8 @@ Global
 		{13E85053-54B3-487B-8DDB-3430B1C1B3BF}.Release|Win32.Build.0 = Release|Win32
 		{8C07F811-C81C-432C-B334-1AE6FAECF951}.Release|Win32.ActiveCfg = Release|Win32
 		{8C07F811-C81C-432C-B334-1AE6FAECF951}.Release|Win32.Build.0 = Release|Win32
+		{E66587B7-FDFE-42AA-A3DC-FACCD511279C}.Release|Win32.ActiveCfg = Release|Win32
+		{E66587B7-FDFE-42AA-A3DC-FACCD511279C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
