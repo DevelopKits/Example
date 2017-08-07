@@ -201,6 +201,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win32_interop", "hiredis\ms
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemoryPool", "MemoryPool\MemoryPool.vcxproj", "{E66587B7-FDFE-42AA-A3DC-FACCD511279C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "thrift", "thrift", "{0E5C2266-FA78-4EE4-BF14-F1B2799B5B05}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThriftServer", "ThriftServer\ThriftServer.vcxproj", "{045F0D0E-2959-4C96-B4A3-5A4E443A8703}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Win32 = Release|Win32
@@ -318,6 +322,8 @@ Global
 		{8C07F811-C81C-432C-B334-1AE6FAECF951}.Release|Win32.Build.0 = Release|Win32
 		{E66587B7-FDFE-42AA-A3DC-FACCD511279C}.Release|Win32.ActiveCfg = Release|Win32
 		{E66587B7-FDFE-42AA-A3DC-FACCD511279C}.Release|Win32.Build.0 = Release|Win32
+		{045F0D0E-2959-4C96-B4A3-5A4E443A8703}.Release|Win32.ActiveCfg = Release|Win32
+		{045F0D0E-2959-4C96-B4A3-5A4E443A8703}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -368,5 +374,6 @@ Global
 		{FC846892-4DAD-4BE2-8489-93CC739E82A1} = {12E36EF8-AB03-433B-8CB5-7DD6B88E9F68}
 		{13E85053-54B3-487B-8DDB-3430B1C1B3BF} = {12E36EF8-AB03-433B-8CB5-7DD6B88E9F68}
 		{8C07F811-C81C-432C-B334-1AE6FAECF951} = {12E36EF8-AB03-433B-8CB5-7DD6B88E9F68}
+		{045F0D0E-2959-4C96-B4A3-5A4E443A8703} = {0E5C2266-FA78-4EE4-BF14-F1B2799B5B05}
 	EndGlobalSection
 EndGlobal
