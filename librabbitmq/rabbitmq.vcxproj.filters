@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{EBC1F284-99FC-318E-9B37-C784FB06BF2D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{4A3068D1-C8AB-345B-8B16-D1D20E5DF047}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="amqp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_framing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_hostcheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_openssl_hostname_validation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_ssl_socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_table.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_tcp_socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amqp_time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\threads.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\msinttypes\stdint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="amqp_api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_connection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_consumer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_framing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_hostcheck.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_mem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_openssl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_openssl_hostname_validation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_socket.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_table.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_tcp_socket.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amqp_url.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\threads.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

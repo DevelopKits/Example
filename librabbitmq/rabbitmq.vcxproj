@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{BF7E09BF-B886-302B-82A6-6CDF91195FEE}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>rabbitmq</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)librabbitmq\Bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\librabbitmq\Obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rabbitmq.4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>win32;..\depend;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H;WITH_SSL=1;ENABLE_THREAD_SAFETY;AMQP_BUILD;rabbitmq_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H;WITH_SSL=1;ENABLE_THREAD_SAFETY;AMQP_BUILD;CMAKE_INTDIR=\"Release\";rabbitmq_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\tt11\librabbitmq;C:\Users\Swartz\Desktop\rabbitmq-c-0.8.0\librabbitmq;C:\Users\Swartz\Desktop\rabbitmq-c-0.8.0\librabbitmq\win32;F:\Example\depend;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\tt11\librabbitmq;C:\Users\Swartz\Desktop\rabbitmq-c-0.8.0\librabbitmq;C:\Users\Swartz\Desktop\rabbitmq-c-0.8.0\librabbitmq\win32;F:\Example\depend;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;ssleay32.lib;libeay32.lib;ws2_32.lib;crypt32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\depend\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <ProgramDataBaseFile>$(OutDir)$(TargetName).pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>xcopy /Y Bin\*.dll   ..\depend\mq\lib
+xcopy /Y Bin\*.lib   ..\depend\mq\lib
+xcopy /Y Bin\*.pdb   ..\depend\mq\lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:/tt11/ZERO_CHECK.vcxproj">
+      <Project>A054B5C1-9103-3021-806A-FB2F71A665A6</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="amqp.h" />
+    <ClInclude Include="amqp_framing.h" />
+    <ClInclude Include="amqp_hostcheck.h" />
+    <ClInclude Include="amqp_openssl_hostname_validation.h" />
+    <ClInclude Include="amqp_private.h" />
+    <ClInclude Include="amqp_socket.h" />
+    <ClInclude Include="amqp_ssl_socket.h" />
+    <ClInclude Include="amqp_table.h" />
+    <ClInclude Include="amqp_tcp_socket.h" />
+    <ClInclude Include="amqp_time.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="win32\msinttypes\stdint.h" />
+    <ClInclude Include="win32\threads.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="amqp_api.c" />
+    <ClCompile Include="amqp_connection.c" />
+    <ClCompile Include="amqp_consumer.c" />
+    <ClCompile Include="amqp_framing.c" />
+    <ClCompile Include="amqp_hostcheck.c" />
+    <ClCompile Include="amqp_mem.c" />
+    <ClCompile Include="amqp_openssl.c" />
+    <ClCompile Include="amqp_openssl_hostname_validation.c" />
+    <ClCompile Include="amqp_socket.c" />
+    <ClCompile Include="amqp_table.c" />
+    <ClCompile Include="amqp_tcp_socket.c" />
+    <ClCompile Include="amqp_time.c" />
+    <ClCompile Include="amqp_url.c" />
+    <ClCompile Include="win32\threads.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
