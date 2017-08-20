@@ -11,7 +11,7 @@
 
 #define AMQPPORT 5672
 #define AMQPSPORT 5671
-#define AMQPHOST "localhost"
+#define AMQPHOST "127.0.0.1"
 #define AMQPVHOST "/"
 #define AMQPLOGIN "guest"
 #define AMQPPSWD  "guest"

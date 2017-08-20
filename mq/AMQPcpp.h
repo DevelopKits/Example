@@ -6,12 +6,20 @@
  *
  */
 
+
+
 #ifndef __AMQPCPP
 #define __AMQPCPP
 
+#ifdef MQ_EXPORT
+#define AMQPCPP_EXPORTS __declspec(dllexport)
+#else
+#define AMQPCPP_EXPORTS __declspec(dllimport)
+#endif
+
 #define AMQPPORT 5672
 #define AMQPSPORT 5671
-#define AMQPHOST "localhost"
+#define AMQPHOST "127.0.0.1"
 #define AMQPVHOST "/"
 #define AMQPLOGIN "guest"
 #define AMQPPSWD  "guest"
@@ -69,7 +77,7 @@ enum AMQPProto_e {
 
 #define SET_AMQP_PROTO_BY_SSL_USAGE(b) (b ? AMQPS_proto : AMQP_proto)
 
-class AMQPException : public std::exception {
+class AMQPCPP_EXPORTS AMQPException : public std::exception {
 	std::string message;
 	int code;
 	public:
@@ -91,7 +99,7 @@ class AMQPException : public std::exception {
 
 
 
-class AMQPMessage {
+class AMQPCPP_EXPORTS AMQPMessage{
 
 	char * data;
 	uint32_t len;
@@ -164,7 +172,7 @@ class AMQPBase {
 		void setName(std::string name);
 };
 
-class AMQPQueue : public AMQPBase  {
+class AMQPCPP_EXPORTS AMQPQueue : public AMQPBase  {
 	protected:
 #if __cplusplus > 199711L // C++11 or greater
                 std::map< AMQPEvents_e, std::function<int(AMQPMessage*)> > events;
@@ -236,7 +244,7 @@ class AMQPQueue : public AMQPBase  {
 };
 
 
-class AMQPExchange : public AMQPBase {
+class AMQPCPP_EXPORTS AMQPExchange : public AMQPBase{
 	std::string type;
 	std::map<std::string,std::string> sHeaders;
 	std::map<std::string,std::string> sHeadersSpecial;
@@ -280,7 +288,7 @@ class AMQPExchange : public AMQPBase {
 
 };
 
-class AMQP {
+class AMQPCPP_EXPORTS AMQP {
 	public:
 		AMQP();
 		AMQP(std::string cnnStr, bool use_ssl_=false,
