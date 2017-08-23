@@ -96,11 +96,13 @@ void AMQPQueue::sendDeclareCommand() {
 	char error_message [256];
 	memset(error_message,0,256);
 
-	if (res.reply_type == AMQP_RESPONSE_NONE) {
+	if (res.reply_type == AMQP_RESPONSE_NONE) 
+	{
 		throw AMQPException("error the QUEUE.DECLARE command, response none");
 	}
 
-	if (res.reply.id == AMQP_CHANNEL_CLOSE_METHOD) {
+	if (res.reply.id == AMQP_CHANNEL_CLOSE_METHOD) 
+	{
 		amqp_channel_close_t * err = (amqp_channel_close_t *) res.reply.decoded;
 
 		int c_id = 	(int) err->class_id;
@@ -108,10 +110,14 @@ void AMQPQueue::sendDeclareCommand() {
 		opened=0;
 
 		throw AMQPException(&res);
-	} else if (res.reply.id == AMQP_QUEUE_DECLARE_OK_METHOD) {
+	} 
+	else if (res.reply.id == AMQP_QUEUE_DECLARE_OK_METHOD) 
+	{
 			amqp_queue_declare_ok_t* data = (amqp_queue_declare_ok_t*) res.reply.decoded;
 			count = data->message_count;
-	} else {
+	} 
+	else 
+	{
 		sprintf( error_message, "error the Declare command  receive method=%d", res.reply.id);
 		throw AMQPException(error_message);
 	}
@@ -364,24 +370,13 @@ void AMQPQueue::sendGetCommand() {
 	amqp_release_buffers(*cnn);
 }
 
-void AMQPQueue::addEvent( AMQPEvents_e eventType, int (*event)(AMQPMessage*)) {
-    #if __cplusplus > 199711L // C++11 or greater
-        std::function<int(AMQPMessage*)> callback = &(*event);
-        addEvent(eventType, callback);
-#else
-        if (events.find(eventType) != events.end())
-		throw AMQPException("event already added");
-	events[eventType] = reinterpret_cast< int(*)( AMQPMessage * ) > (event);
-#endif
-}
-
-#if __cplusplus > 199711L // C++11 or greater
-void AMQPQueue::addEvent( AMQPEvents_e eventType, std::function<int(AMQPMessage*)>& event) {
+void AMQPQueue::addEvent( AMQPEvents_e eventType, int (*event)(AMQPMessage*)) 
+{
 	if (events.find(eventType) != events.end())
-		throw AMQPException("the event already added");
-	events[eventType] = event;
+			throw AMQPException("event already added");
+	events[eventType] = reinterpret_cast< int(*)( AMQPMessage * ) > (event);
+
 }
-#endif
 
 void AMQPQueue::Consume() {
 	parms=0;

@@ -87,16 +87,21 @@ void AMQP::parseCnnString( string cnnString ) {
 	string hostPortStr, userPswString;
 	string::size_type pos = cnnString.find('@');
 
-	if (0 == pos) {
+	if (0 == pos) 
+	{
 		hostPortStr.assign(cnnString, 1, string::npos);
 		AMQP::parseHostPort(hostPortStr);
 		user = AMQPLOGIN;
 		password = AMQPPSWD;
-	} else if (string::npos == pos) {
+	} 
+	else if (string::npos == pos) 
+	{
 		AMQP::parseHostPort(cnnString);
 		user = AMQPLOGIN;
 		password = AMQPPSWD;
-	} else {
+	} 
+	else 
+	{
 		hostPortStr.assign(cnnString, pos+1, string::npos);
 		userPswString.assign(cnnString, 0, pos);
 		AMQP::parseHostPort(hostPortStr);
@@ -129,28 +134,43 @@ void AMQP::parseHostPort(string hostPortString ) {
 	vhost = AMQPVHOST;
 	port = AMQPPORT;
 
-	if (pos == string::npos) {
-		if ( pos2 == string::npos) {
+	if (pos == string::npos) 
+	{
+		if ( pos2 == string::npos) 
+		{
 			host = hostPortString;
-		} else {
+		} 
+		else 
+		{
 			vhost.assign(hostPortString, pos2+1, string::npos);
-			if (pos2 > 0) {
+			if (pos2 > 0) 
+			{
 				host.assign(hostPortString, 0, pos2);
 			}
 		}
-	} else if (pos == 0) {
-		if (pos2 == string::npos) {
+	}
+	else if (pos == 0) 
+	{
+		if (pos2 == string::npos) 
+		{
 			portString.assign(hostPortString, 1, string::npos);
-		} else {
+		} 
+		else 
+		{
 			portString.assign(hostPortString, 1, pos2-1);
 			vhost.assign(hostPortString, pos2+1, string::npos);
 		}
 		port = atoi(portString.c_str());
-	} else {
-		if ( pos2 == string::npos ) {
+	} 
+	else 
+	{
+		if ( pos2 == string::npos ) 
+		{
 			host.assign(hostPortString, 0, pos);
 			portString.assign(hostPortString, pos+1, string::npos);
-		} else {
+		} 
+		else
+		{
 			vhost.assign(hostPortString, pos2+1, string::npos);
 			host.assign(hostPortString, 0, pos);
 			portString.assign(hostPortString, pos+1, pos2-pos-1);
