@@ -15,45 +15,36 @@ int main(int argc, char** argv)
 		//		AMQP amqp;
 		//		AMQP amqp(AMQPDEBUG);
 
-		AMQP amqp("guest:guest@127.0.0.1");	// all connect string
-		//AMQP amqp;
-		AMQPExchange * ex = amqp.createExchange("hello-exchange");
-		ex->Declare("hello-exchange", "direct");
+		AMQP amqp("swartz:123456@127.0.0.1/swartz_host");	// all connect string
 
-		AMQPQueue * qu2 = amqp.createQueue("hello-queue");
-		qu2->Declare();
-		qu2->Bind("hello-exchange", "hola");
+		AMQPExchange * ex = amqp.createExchange("swartz.test");
+		ex->Declare("swartz.test", "topic", AMQP_DURABLE);
+
+		AMQPQueue * qu2 = amqp.createQueue("test.que");
+		qu2->Declare("test.que", AMQP_DURABLE);
+		qu2->Bind("swartz.test", "test.*");
 
 		std::cout << "Connected." << std::endl;
 
-		std::string routing_key("hola");
+		/*std::string routing_key("hola");*/
 		string ss = "message 1 ";
-		/* test very long message
-		ss = ss+ss+ss+ss+ss+ss+ss;
-		ss += ss+ss+ss+ss+ss+ss+ss;
-		ss += ss+ss+ss+ss+ss+ss+ss;
-		ss += ss+ss+ss+ss+ss+ss+ss;
-		ss += ss+ss+ss+ss+ss+ss+ss;
-		*/
 
 		ex->setHeader("Delivery-mode", 2);
 		ex->setHeader("Content-type", "text/text");
 		ex->setHeader("Content-encoding", "UTF-8");
 
-		ex->Publish(ss, routing_key); // publish very long message
+		ex->Publish(ss, "test.*"); // publish very long message
 
 		while (true)
 		{
-			ex->Publish("message 2 ", routing_key);
-			ex->Publish("message 3 ", routing_key);
+			ex->Publish("message 2 ", "test.*");
+			ex->Publish("message 3 ", "test.*");
 			Sleep(1000);
 		}
 		
-
-
-		if (argc == 2) {
+		{
 			AMQPQueue * qu = amqp.createQueue();
-			qu->Cancel(amqp_cstring_bytes(argv[1]));
+			qu->Cancel(amqp_cstring_bytes("hello-consumer"));
 		}
 
 	}

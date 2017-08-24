@@ -27,11 +27,11 @@ int  onMessage(AMQPMessage * message)
 	cout << "#" << i << " tag=" << message->getDeliveryTag() << " content-type:" << message->getHeader("Content-type");
 	cout << " encoding:" << message->getHeader("Content-encoding") << " mode=" << message->getHeader("Delivery-mode") << endl;
 
-	if (i > 10) 
-	{
-		AMQPQueue * q = message->getQueue();
-		q->Cancel(message->getConsumerTag());
-	}
+	//if (i > 10) 
+	//{
+	//	AMQPQueue * q = message->getQueue();
+	//	q->Cancel(message->getConsumerTag());
+	//}
 	return 0;
 };
 
@@ -44,14 +44,14 @@ int main() {
 		try {
 			//		AMQP amqp("123123:akalend@localhost/private");
 			reconnects++;
-			AMQP amqp("guest:guest@127.0.0.1");
+			AMQP amqp("swartz:123456@127.0.0.1/swartz_host");
 
-			AMQPExchange * ex = amqp.createExchange("hello-exchange");
-			ex->Declare("hello-exchange", "direct");
+			AMQPExchange * ex = amqp.createExchange("swartz.test");
+			ex->Declare("swartz.test", "topic", AMQP_DURABLE);
 
-			AMQPQueue * qu2 = amqp.createQueue("hello-queue");
-			qu2->Declare();
-			qu2->Bind("hello-exchange", "hola");
+			AMQPQueue * qu2 = amqp.createQueue("test.que");
+			qu2->Declare("test.que", AMQP_DURABLE);
+			qu2->Bind("swartz.test", "test.*");
 
 			std::cout << "Connected." << std::endl;
 
